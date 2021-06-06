@@ -7,9 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class ClientViewActivity extends AppCompatActivity {
-    DatabaseHelper myDb;
+    DatabaseHelper DB;
     EditText username, name, surname, phone, location;
     Button btn_submit;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

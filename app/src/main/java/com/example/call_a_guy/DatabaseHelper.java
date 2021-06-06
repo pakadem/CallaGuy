@@ -39,8 +39,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + CLIENT_TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT, SURNAME TEXT,EMAIL TEXT,PHONE TEXT,LOCATION TEXT)");
-        db.execSQL("create table " + ARTISAN_TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT, SURNAME TEXT,EMAIL TEXT,PHONE TEXT,SKILL TEXT,LOCATION TEXT )");
+        db.execSQL("create table " + CLIENT_TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, SURNAME TEXT,EMAIL TEXT,PHONE TEXT,LOCATION TEXT)");
+        db.execSQL("create table " + ARTISAN_TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, SURNAME TEXT,EMAIL TEXT,PHONE TEXT,SKILL TEXT,LOCATION TEXT )");
 
     }
 
@@ -53,6 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertClientData(String Name, String Surname, String Email, String Phone, String Location) {
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(CLIENT_COLUMN_NAME, Name);
