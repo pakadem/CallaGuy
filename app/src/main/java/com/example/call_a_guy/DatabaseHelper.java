@@ -69,6 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+
     public boolean insertArtisanData(String Name, String Surname, String Email, String Phone,String Skill, String Location) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -84,6 +85,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         } else {
             return true;
+        }
+    }
+
+    public String getClientData(String Email){
+        Cursor cursor = null;
+        String empName = "";
+        SQLiteDatabase db = this.getWritableDatabase();
+        try {
+            cursor = db.rawQuery("SELECT Name FROM client WHERE Email="+Email,null);
+            if(cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                empName = cursor.getString(cursor.getColumnIndex("Name"));
+            }
+            return empName;
+        }finally {
+            cursor.close();
         }
     }
 

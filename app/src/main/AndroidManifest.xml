@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/callaguylogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.CallaGuy">
-        <activity android:name=".ClientViewActivity"></activity>
+        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".ClientViewActivity" />
         <activity android:name=".ClientRegisterActivity" />
         <activity android:name=".ClientStartActivity" />
         <activity android:name=".ArtisanViewActivity" />
