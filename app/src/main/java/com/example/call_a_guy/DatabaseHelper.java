@@ -142,7 +142,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean updateArtisanData(String ID, String Name, String Surname, String Email, String Phone, String Location) {
+    public boolean updateArtisanData(String ID, String Name, String Surname, String Email, String Phone, String Skill, String Location) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(ARTISAN_COLUMN_ID, ID);
@@ -150,6 +150,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(ARTISAN_COLUMN_SURNAME, Surname);
         contentValues.put(ARTISAN_COLUMN_EMAIL, Email);
         contentValues.put(ARTISAN_COLUMN_PHONE, Phone);
+        contentValues.put(ARTISAN_COLUMN_SKILL, Skill);
         contentValues.put(ARTISAN_COLUMN_LOCATION, Location);
         db.update(ARTISAN_TABLE_NAME,contentValues,"ID=?",new String[] {ID});
 
@@ -158,12 +159,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Integer deleteClientData(String ID){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(ARTISAN_COLUMN_ID,"ID=?",new String[] {ID});
+        return db.delete(CLIENT_TABLE_NAME,"ID=?",new String[] {ID});
 
     }
-    public Integer deleteData(String ID){
+    public Integer deleteArtisanData(String ID){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(ARTISAN_COLUMN_ID,"ID=?",new String[] {ID});
+        return db.delete(ARTISAN_TABLE_NAME,"ID=?",new String[] {ID});
 
     }
 }

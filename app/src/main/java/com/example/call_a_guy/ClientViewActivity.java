@@ -41,6 +41,8 @@ public class ClientViewActivity extends AppCompatActivity {
         text_client_phone = (EditText)findViewById(R.id.text_client_phone);
         text_client_location = (EditText)findViewById(R.id.text_client_location);
         btn_submit = (Button) findViewById(R.id.btn_submit);
+        btn_client_update = (Button) findViewById(R.id.btn_client_update);
+        btn_client_DELETE = (Button) findViewById(R.id.btn_client_DELETE);
 
         client_ID_intent = getIntent().getStringExtra("text_client_ID");
         int client_ID_int =Integer.parseInt(client_ID_intent);
@@ -48,8 +50,8 @@ public class ClientViewActivity extends AppCompatActivity {
         client_ID.setText(client_ID_intent);
 
         viewUser(client_ID_int);
-        updateClientData();
-        deleteClientData();
+        updateClientData(client_ID_intent);
+        deleteClientData(client_ID_intent);
     }
 
     public void viewUser(int client_ID) {
@@ -69,7 +71,7 @@ public class ClientViewActivity extends AppCompatActivity {
         }
     }
 
-    public void updateClientData()
+    public void updateClientData(String client_ID_intent)
     {
 
         btn_client_update.setOnClickListener(
@@ -99,7 +101,7 @@ public class ClientViewActivity extends AppCompatActivity {
         );
     }
 
-    public void deleteClientData()
+    public void deleteClientData(String client_ID_intent)
     {
         btn_client_DELETE.setOnClickListener(
                 new View.OnClickListener() {

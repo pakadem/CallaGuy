@@ -10,13 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ArtisanViewActivity extends AppCompatActivity {
     DatabaseHelper DB;
     EditText text_artisan_name, text_artisan_surname, text_artisan_email, text_artisan_phone, text_artisan_skill, text_artisan_location;
     private TextView artisan_ID;
     String artisan_ID_intent;
-    Button btn_back, btn_submit;
+    Button btn_back, btn_submit, btn_artisan_view_update, btn_artisan_view_delete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,8 @@ public class ArtisanViewActivity extends AppCompatActivity {
         text_artisan_skill = (EditText)findViewById(R.id.text_artisan_skill);
         text_artisan_location = (EditText)findViewById(R.id.text_artisan_location);
         btn_submit = (Button) findViewById(R.id.btn_submit);
+        btn_artisan_view_update = (Button) findViewById(R.id.btn_artisan_view_update);
+        btn_artisan_view_delete = (Button) findViewById(R.id.btn_artisan_view_delete);
 
         artisan_ID_intent = getIntent().getStringExtra("text_artisan_ID");
         int artisan_ID_int =Integer.parseInt(artisan_ID_intent);
@@ -49,6 +52,8 @@ public class ArtisanViewActivity extends AppCompatActivity {
 
 
         viewUser(artisan_ID_int);
+        updateArtisanData(artisan_ID_intent);
+        deleteArtisanData(artisan_ID_intent);
     }
 
     public void viewUser(int artisan_ID) {
@@ -67,6 +72,53 @@ public class ArtisanViewActivity extends AppCompatActivity {
             text_artisan_skill.setText(res.getString(5));
             text_artisan_location.setText(res.getString(6));
         }
+    }
+
+    public void updateArtisanData(String artisan_ID_intent)
+    {
+
+        btn_artisan_view_update.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        //String client_ID = Integer.toString(client_ID_intent);
+                        boolean IsUpdate= DB.updateArtisanData( artisan_ID_intent,
+                                                                text_artisan_name.getText().toString(),
+                                                                text_artisan_surname.getText().toString(),
+                                                                text_artisan_email.getText().toString(),
+                                                                text_artisan_phone.getText().toString(),
+                                                                text_artisan_skill.getText().toString(),
+                                                                text_artisan_location.getText().toString()
+                                                        );
+                        if(IsUpdate==true)
+                        {
+                            Toast.makeText(ArtisanViewActivity.this, "Data updated", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(ArtisanViewActivity.this, "Data not updated", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+        );
+    }
+
+    public void deleteArtisanData(String artisan_ID_int){
+        btn_artisan_view_delete.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Integer deletedRows = DB.deleteArtisanData(artisan_ID_int);
+                        if (deletedRows > 0) {
+                            Toast.makeText(ArtisanViewActivity.this, "Data deleted", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(ArtisanViewActivity.this, "Data not deleted", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+        );
+
     }
 
     public void showMessage(String title,String Message){
