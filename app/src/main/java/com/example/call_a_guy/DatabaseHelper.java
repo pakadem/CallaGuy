@@ -11,7 +11,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-
+    int ID;
+    String Name, Surname, Emal, Phone, Location;
     public static final String DATABASE_NAME = "callaguy.db";
 
     public static final String CLIENT_TABLE_NAME = "client";
@@ -39,8 +40,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + CLIENT_TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, SURNAME TEXT,EMAIL TEXT,PHONE TEXT,LOCATION TEXT)");
-        db.execSQL("create table " + ARTISAN_TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, SURNAME TEXT,EMAIL TEXT,PHONE TEXT,SKILL TEXT,LOCATION TEXT )");
+        String table1 = "create table " + CLIENT_TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, SURNAME TEXT,EMAIL TEXT,PHONE TEXT,LOCATION TEXT)";
+        String table2 = "create table " + ARTISAN_TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, SURNAME TEXT,EMAIL TEXT,PHONE TEXT,SKILL TEXT,LOCATION TEXT)";
+
+        db.execSQL(table1);
+        db.execSQL(table2);
 
     }
 
@@ -70,7 +74,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean insertArtisanData(String Name, String Surname, String Email, String Phone,String Skill, String Location) {
+    public boolean insertArtisanData(String Name, String Surname, String Email, String Phone, String Skill, String Location) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(ARTISAN_COLUMN_NAME, Name);
@@ -107,6 +111,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res=db.rawQuery("select * from "+ ARTISAN_TABLE_NAME,null);
+
+        return res;
+    }
+
+    Cursor getUser(int ID) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res=db.rawQuery("select * from "+ ARTISAN_TABLE_NAME + " WHERE ID=" + ID,null);
 
         return res;
     }

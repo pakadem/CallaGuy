@@ -43,7 +43,7 @@
 
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/text_artisan_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -58,7 +58,7 @@
 
 
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/text_artisan_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -70,10 +70,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/text_artisan_email" />
 
     <EditText
-        android:id="@+id/surname"
+        android:id="@+id/text_artisan_surname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -85,10 +85,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/text_artisan_name" />
 
     <EditText
-        android:id="@+id/phone"
+        android:id="@+id/text_artisan_phone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -100,10 +100,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/surname" />
+        app:layout_constraintTop_toBottomOf="@+id/text_artisan_surname" />
 
     <EditText
-        android:id="@+id/skill"
+        android:id="@+id/text_artisan_skill"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -115,10 +115,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
+        app:layout_constraintTop_toBottomOf="@+id/text_artisan_phone" />
 
     <EditText
-        android:id="@+id/location"
+        android:id="@+id/text_artisan_location"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -130,16 +130,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/skill" />
+        app:layout_constraintTop_toBottomOf="@+id/text_artisan_skill" />
 
     <Button
-        android:id="@+id/btn_submit"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_artisan_reg_submit"
+        android:layout_width="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:layout_height="wrap_content"
         android:text="Submit"
         app:backgroundTint="#FF304F"
         android:textColor="#0e2f56"
-        android:enabled="false"
+        android:enabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

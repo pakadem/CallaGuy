@@ -11,8 +11,8 @@ import android.widget.Toast;
 
 public class ArtisanRegisterActivity extends AppCompatActivity {
     DatabaseHelper DB;
-    EditText name, surname, email, phone, skill, location;
-    private Button btn_back, btn_submit;
+    EditText text_artisan_name, text_artisan_surname, text_artisan_email, text_artisan_phone, text_artisan_skill, text_artisan_location;
+    Button btn_back, btn_artisan_reg_submit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,45 +24,45 @@ public class ArtisanRegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                  Intent intent = new Intent(ArtisanRegisterActivity.this, ArtisanStartActivity.class);
-                 startActivity(intent);
+                Intent intent = new Intent(ArtisanRegisterActivity.this, ArtisanStartActivity.class);
+                startActivity(intent);
             }
         });
 
         DB = new DatabaseHelper(this);
-        name = (EditText)findViewById(R.id.name);
-        surname = (EditText)findViewById(R.id.surname);
-        email = (EditText)findViewById(R.id.email);
-        phone = (EditText)findViewById(R.id.phone);
-        skill = (EditText)findViewById(R.id.skill);
-        location = (EditText)findViewById(R.id.location);
-        btn_submit = (Button) findViewById(R.id.btn_submit);
+        text_artisan_name = (EditText)findViewById(R.id.text_artisan_name);
+        text_artisan_surname = (EditText)findViewById(R.id.text_artisan_surname);
+        text_artisan_email = (EditText)findViewById(R.id.text_artisan_email);
+        text_artisan_phone = (EditText)findViewById(R.id.text_artisan_phone);
+        text_artisan_skill = (EditText)findViewById(R.id.text_artisan_skill);
+        text_artisan_location = (EditText)findViewById(R.id.text_artisan_location);
+        btn_artisan_reg_submit = (Button) findViewById(R.id.btn_artisan_reg_submit);
 
         createArtisan();
     }
 
     public void createArtisan()
     {
-        btn_submit.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        boolean Isinserted = DB.insertArtisanData(  name.getText().toString(),
-                                                                    surname.getText().toString(),
-                                                                    email.getText().toString(),
-                                                                    phone.getText().toString(),
-                                                                    skill.getText().toString(),
-                                                                    location.getText().toString()
-                        );
-                        if (Isinserted==true){
-                            Toast.makeText(ArtisanRegisterActivity.this, "Data inserted", Toast.LENGTH_SHORT).show();
+        btn_artisan_reg_submit.setOnClickListener(
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    boolean Isinserted = DB.insertArtisanData(  text_artisan_name.getText().toString(),
+                                                                text_artisan_surname.getText().toString(),
+                                                                text_artisan_email.getText().toString(),
+                                                                text_artisan_phone.getText().toString(),
+                                                                text_artisan_skill.getText().toString(),
+                                                                text_artisan_location.getText().toString()
+                    );
+                    if (Isinserted==true){
+                        Toast.makeText(ArtisanRegisterActivity.this, "Data inserted", Toast.LENGTH_SHORT).show();
 
-                        }else{
-                            Toast.makeText(ArtisanRegisterActivity.this, "Data not inserted", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(ArtisanRegisterActivity.this, "Data not inserted", Toast.LENGTH_SHORT).show();
 
-                        }
                     }
                 }
+            }
         );
     }
 }

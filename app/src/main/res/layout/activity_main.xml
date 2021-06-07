@@ -13,7 +13,7 @@
         android:layout_height="90dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginBottom="536dp"
+        android:layout_marginBottom="612dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.553"
@@ -23,9 +23,9 @@
     <TextView
         android:id="@+id/text_artisan_client"
         android:layout_width="290dp"
-        android:layout_height="112dp"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Hello, are you an artisan or a client? Chose below."
+        android:text="Hello, welcome to Africa's biggest artisan directory"
         android:textAlignment="center"
         android:textColor="#0e2f56"
         android:textSize="20sp"
@@ -34,7 +34,23 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.479" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView1"
+        app:layout_constraintVertical_bias="0.38" />
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_height="wrap_content"
+        android:text="Search for Artisans close"
+        app:backgroundTint="#0e2f56"
+        android:textColor="#FF304F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_artisan_client"
+        app:layout_constraintVertical_bias="0.12"/>
 
     <Button
         android:id="@+id/btn_artisan"
@@ -42,14 +58,14 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_height="wrap_content"
-        android:text="Artisan"
+        android:text="Login as Artisan"
         app:backgroundTint="#FF304F"
         android:textColor="#0e2f56"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_artisan_client"
-        app:layout_constraintVertical_bias="0.02"/>
+        app:layout_constraintTop_toBottomOf="@+id/btn_search"
+        app:layout_constraintVertical_bias="0.2"/>
 
     <Button
         android:id="@+id/btn_client"
@@ -57,7 +73,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_height="wrap_content"
-        android:text="Client"
+        android:text="Login as Client"
         app:backgroundTint="#FF304F"
         android:textColor="#0e2f56"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -132,4 +132,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/skill" />
 
+
+    <Button
+        android:id="@+id/btn_artisan_view_update"
+        android:layout_width="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        app:backgroundTint="#FF304F"
+        android:textColor="#0e2f56"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/location"
+        app:layout_constraintVertical_bias="0.2"/>
+
+
+    <Button
+        android:id="@+id/btn_artisan_view_delete"
+        android:layout_width="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        app:backgroundTint="#0e2f56"
+        android:textColor="#FF304F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_artisan_view_update"
+        app:layout_constraintVertical_bias="0.2"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

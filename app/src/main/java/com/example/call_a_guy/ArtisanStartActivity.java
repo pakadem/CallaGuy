@@ -31,7 +31,7 @@ public class ArtisanStartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
-                Intent intent = new Intent( ArtisanStartActivity.this, ArtisanRegisterActivity.class);
+                Intent intent = new Intent( ArtisanStartActivity.this, ArtisanViewActivity.class);
                 startActivity(intent);
             }
         });
