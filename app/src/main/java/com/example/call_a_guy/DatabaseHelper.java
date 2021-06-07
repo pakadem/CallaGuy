@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     int ID;
-    String Name, Surname, Emal, Phone, Location;
+    String Name, Surname, Email, Phone, Location;
     public static final String DATABASE_NAME = "callaguy.db";
 
     public static final String CLIENT_TABLE_NAME = "client";
@@ -115,9 +115,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
-    Cursor getUser(int ID) {
+    Cursor getArtisanUser(int ID) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res=db.rawQuery("select * from "+ ARTISAN_TABLE_NAME + " WHERE ID=" + ID,null);
+        Cursor res=db.rawQuery("select * from artisan WHERE ID=" + ID,null);
+
+        return res;
+    }
+    Cursor getClientUser(int ID) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res=db.rawQuery("select * from client WHERE ID=" + ID,null);
 
         return res;
     }
@@ -150,6 +156,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public Integer deleteClientData(String ID){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(ARTISAN_COLUMN_ID,"ID=?",new String[] {ID});
+
+    }
     public Integer deleteData(String ID){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(ARTISAN_COLUMN_ID,"ID=?",new String[] {ID});

@@ -9,10 +9,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class ArtisanViewActivity extends AppCompatActivity {
     DatabaseHelper DB;
-    EditText name, surname, email, phone, skill, location;
+    EditText text_artisan_name, text_artisan_surname, text_artisan_email, text_artisan_phone, text_artisan_skill, text_artisan_location;
+    private TextView artisan_ID;
+    String artisan_ID_intent;
     Button btn_back, btn_submit;
 
     @Override
@@ -31,19 +34,25 @@ public class ArtisanViewActivity extends AppCompatActivity {
         });
 
         DB = new DatabaseHelper(this);
-        name = (EditText)findViewById(R.id.name);
-        surname = (EditText)findViewById(R.id.surname);
-        email = (EditText)findViewById(R.id.email);
-        phone = (EditText)findViewById(R.id.phone);
-        skill = (EditText)findViewById(R.id.skill);
-        location = (EditText)findViewById(R.id.location);
+        text_artisan_name = (EditText)findViewById(R.id.text_artisan_name);
+        text_artisan_surname = (EditText)findViewById(R.id.text_artisan_surname);
+        text_artisan_email = (EditText)findViewById(R.id.text_artisan_email);
+        text_artisan_phone = (EditText)findViewById(R.id.text_artisan_phone);
+        text_artisan_skill = (EditText)findViewById(R.id.text_artisan_skill);
+        text_artisan_location = (EditText)findViewById(R.id.text_artisan_location);
         btn_submit = (Button) findViewById(R.id.btn_submit);
 
-        viewUser();
+        artisan_ID_intent = getIntent().getStringExtra("text_artisan_ID");
+        int artisan_ID_int =Integer.parseInt(artisan_ID_intent);
+        artisan_ID = findViewById(R.id.text_artisan_ID);
+        artisan_ID.setText(artisan_ID_intent);
+
+
+        viewUser(artisan_ID_int);
     }
 
-    public void viewUser() {
-        Cursor res = DB.getUser(2);
+    public void viewUser(int artisan_ID) {
+        Cursor res = DB.getArtisanUser(artisan_ID);
         if (res.getCount() == 0) {
             showMessage("Error", "Nothing found");
             return;
@@ -51,12 +60,13 @@ public class ArtisanViewActivity extends AppCompatActivity {
 
         StringBuffer buffer = new StringBuffer();
         while (res.moveToNext()) {
-            buffer.append("ID:" + res.getString(0) + "\n");
-            buffer.append("NAME:" + res.getString(1) + "\n");
-            buffer.append("SURNAME:" + res.getString(2) + "\n");
-            buffer.append("MARKS:" + res.getString(3) + "\n\n");
+            text_artisan_name.setText(res.getString(1));
+            text_artisan_surname.setText(res.getString(2));
+            text_artisan_email.setText(res.getString(3));
+            text_artisan_phone.setText(res.getString(4));
+            text_artisan_skill.setText(res.getString(5));
+            text_artisan_location.setText(res.getString(6));
         }
-        showMessage("Data", buffer.toString());
     }
 
     public void showMessage(String title,String Message){
