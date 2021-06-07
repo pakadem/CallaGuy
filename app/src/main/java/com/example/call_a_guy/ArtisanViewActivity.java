@@ -12,7 +12,7 @@ import android.widget.EditText;
 
 public class ArtisanViewActivity extends AppCompatActivity {
     DatabaseHelper DB;
-    EditText name, surname, email, phone,skill, location;
+    EditText name, surname, email, phone, skill, location;
     Button btn_back, btn_submit;
 
     @Override

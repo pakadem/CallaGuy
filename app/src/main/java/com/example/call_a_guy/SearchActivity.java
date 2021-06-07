@@ -38,7 +38,7 @@ public class SearchActivity extends AppCompatActivity {
 //        text_artisan_skill = (EditText)findViewById(R.id.text_artisan_skill);
 //        text_artisan_location = (EditText)findViewById(R.id.text_artisan_location);
 //        btn_artisan_reg_submit = (Button) findViewById(R.id.btn_artisan_reg_submit);
-        btn_view_all = (Button) findViewById(R.id.btn_view_all);
+        btn_view_all = (Button) findViewById(R.id.btn_artisan_reg_submit);
 
 
         viewAll();

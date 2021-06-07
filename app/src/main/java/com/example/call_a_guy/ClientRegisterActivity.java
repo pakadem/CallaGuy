@@ -24,7 +24,7 @@ public class ClientRegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(ClientRegisterActivity.this, ArtisanStartActivity.class);
+                Intent intent = new Intent(ClientRegisterActivity.this, ClientStartActivity.class);
                 startActivity(intent);
             }
         });
